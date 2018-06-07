@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1081119418666",
+    "firebase_url": "https://facetracker-e7393.firebaseio.com",
+    "project_id": "facetracker-e7393",
+    "storage_bucket": "facetracker-e7393.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1081119418666:android:ad734167720a49d4",
+        "android_client_info": {
+          "package_name": "com.twomack.android.gms.samples.vision.face.facetracker"
+          //"com.google.android.gms.samples.vision.face.facetracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1081119418666-f2qt6d7edm69r3ai54rhi3bhovfi4319.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "1081119418666-f2qt6d7edm69r3ai54rhi3bhovfi4319.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlcqzlcKNu-LKIUyQOstVehlYgTltR59o"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ok">OK</string>
+    <string name="permission_camera_rationale">Access to the camera is needed for gameplay</string>
+    <string name="no_camera_permission">This application cannot run because it does not have the camera permission.  The application will now exit.</string>
+    <string name="low_storage_error">Face detector dependencies cannot be downloaded due to low device storage</string>
+    <string name="title_activity_game_over">GameOverActivity</string>
+    <string name="level_one_instructions">If Medusa appears, close your eyes! Tap the screen to attack. </string>
+    <string name="level_two_instructions">Help has arrived! The King will now appear to help you on occasion. While he is on the screen, more hearts and better treasure will appear, and the value of all treasure is doubled.</string>
+    <string name="level_three_instructions">Death, the final enemy, has arrived. If you smile at Death, it cannot harm you.</string>
+    <string name="title_activity_level_end">LevelEndActivity</string>
+    <string name="sword_description">The sword allows you to deal double damage when attacking. Price: 150</string>
+    <string name="shield_description">The shield can be activated once per level, and will make you immune to attack for 15 seconds. Price: 150</string>
+    <string name="diamond_description">This item doubles the chance of diamonds appearing. Price: 70</string>
+    <string name="heart_description">This item doubles the chance that a heart will appear. Price: 50</string>
+    <string name="vacuum_description">vacuum</string>
+    <string name="buy_button">Buy</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="title_activity_victory">VictoryActivity</string>
+</resources>
