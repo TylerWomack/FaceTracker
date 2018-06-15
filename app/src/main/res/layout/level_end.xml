@@ -44,13 +44,14 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Total treasure collected: "
+            android:text="Treasure:"
             android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/treasureCollected"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
             android:text="100"
             android:textColor="@color/black" />
     </LinearLayout>
@@ -75,7 +76,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Health remaining: "
+            android:text="Health Remaining:"
             android:textColor="@color/black" />
 
         <TextView
@@ -103,17 +104,16 @@
 
     <ImageView
         android:id="@+id/hourglass"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="28dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:src="@drawable/hourglass"
-        android:visibility="invisible"
+        android:src="@drawable/trippyhourglass"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/shield"
         app:layout_constraintEnd_toEndOf="@+id/shield"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/shield" />
 
     <ImageView
@@ -159,4 +159,31 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Available items"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/hourglass"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintVertical_bias="0.9"
+        tools:text="Available items" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        tools:layout_editor_absoluteX="49dp"
+        tools:layout_editor_absoluteY="475dp" />
 </android.support.constraint.ConstraintLayout>

@@ -24,6 +24,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.graphics.Point;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
@@ -48,6 +49,7 @@ import com.twomack.android.gms.samples.vision.face.facetracker.ui.camera.Graphic
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Activity for the face tracker app.  This app detects faces with the rear facing camera, and draws
@@ -73,6 +75,16 @@ public final class FaceTrackerActivity extends AppCompatActivity {
     float screenWidth;
     float screenHeight;
 
+    MediaPlayer mPlayer = null;
+    MediaPlayer mPlayer2 = null;
+    MediaPlayer mPlayer3;
+    MediaPlayer mPlayer4;
+    MediaPlayer mPlayer5;
+    MediaPlayer mPlayer6;
+    MediaPlayer mPlayer7;
+    MediaPlayer mPlayer8;
+    MediaPlayer mPlayer9;
+    MediaPlayer mPlayer10;
 
     //==============================================================================================
     // Activity Methods
@@ -87,6 +99,8 @@ public final class FaceTrackerActivity extends AppCompatActivity {
         setContentView(R.layout.main);
 
         treasureList = new ArrayList<>();
+
+
 
         mPreview = (CameraSourcePreview) findViewById(R.id.preview);
         mGraphicOverlay = (GraphicOverlay) findViewById(R.id.faceOverlay);
@@ -105,12 +119,178 @@ public final class FaceTrackerActivity extends AppCompatActivity {
     public void startGame(){
 
         int level = getIntent().getIntExtra("level", 1);
+
+        setBackground(level);
+        playMusic();
+
         if (level == 1)
             giveInstructions(R.string.level_one_instructions);
         if (level == 2)
             giveInstructions(R.string.level_two_instructions);
-        if (level == 3)
-            giveInstructions(R.string.level_three_instructions);
+        if (level == 3){
+            giveInstructions(R.string.how_to_win);
+            givePlainInstructions(R.string.level_three_instructions);
+        }
+        if (level == 4)
+            giveInstructions(R.string.how_to_win);
+    }
+
+    public void playMusic(){
+
+        stopMusic();
+
+        Random random = new Random();
+        int randomInt = random.nextInt(10);
+
+                if (randomInt == 0) {
+                        mPlayer = MediaPlayer.create(getApplicationContext(), R.raw.love);
+                        mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                            @Override
+                            public void onCompletion(MediaPlayer mp) {
+                                playMusic();
+                            }
+                        });
+                        mPlayer.start();
+                }
+                if (randomInt == 1) {
+                    mPlayer2 = MediaPlayer.create(getBaseContext(), R.raw.battle);
+                    mPlayer2.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        @Override
+                        public void onCompletion(MediaPlayer mp) {
+                            playMusic();
+                        }
+                    });
+                    mPlayer2.start();
+                }
+                if (randomInt == 2) {
+                    //mPlayer3.reset();
+                    mPlayer3 = MediaPlayer.create(getApplicationContext(), R.raw.boss);
+                    mPlayer3.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        @Override
+                        public void onCompletion(MediaPlayer mp) {
+                            playMusic();
+                        }
+                    });
+                    mPlayer3.start();
+                }
+                if (randomInt == 3) {
+                    //mPlayer4.reset();
+                    mPlayer4 = MediaPlayer.create(getApplicationContext(), R.raw.defeat);
+                    mPlayer4.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        @Override
+                        public void onCompletion(MediaPlayer mp) {
+                            playMusic();
+                        }
+                    });
+                    mPlayer4.start();
+                }
+                if (randomInt == 4) {
+                    //mPlayer5.reset();
+                    mPlayer5 = MediaPlayer.create(getApplicationContext(), R.raw.title);
+                    mPlayer5.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        @Override
+                        public void onCompletion(MediaPlayer mp) {
+                            playMusic();
+                        }
+                    });
+                    mPlayer5.start();
+                }
+                if (randomInt == 5) {
+                    //mPlayer6.reset();
+                    mPlayer6 = MediaPlayer.create(getApplicationContext(), R.raw.map_theme);
+                    mPlayer6.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        @Override
+                        public void onCompletion(MediaPlayer mp) {
+                            playMusic();
+                        }
+                    });
+                    mPlayer6.start();
+                }
+                if (randomInt == 6) {
+                    //mPlayer7.reset();
+                    mPlayer7 = MediaPlayer.create(getApplicationContext(), R.raw.rolling);
+                    mPlayer7.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        @Override
+                        public void onCompletion(MediaPlayer mp) {
+                            playMusic();
+                        }
+                    });
+                    mPlayer7.start();
+                }
+                if (randomInt == 7) {
+                    //mPlayer8.reset();
+                    mPlayer8 = MediaPlayer.create(getApplicationContext(), R.raw.trace_route);
+                    mPlayer8.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        @Override
+                        public void onCompletion(MediaPlayer mp) {
+                            playMusic();
+                        }
+                    });
+                    mPlayer8.start();
+                }
+                if (randomInt == 8) {
+                    //mPlayer9.reset();
+                    mPlayer9 = MediaPlayer.create(getApplicationContext(), R.raw.tricks);
+                    mPlayer9.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        @Override
+                        public void onCompletion(MediaPlayer mp) {
+                            playMusic();
+                        }
+                    });
+                    mPlayer9.start();
+                }
+                if (randomInt == 9) {
+                    mPlayer10 = MediaPlayer.create(getApplicationContext(), R.raw.victory);
+                    //mPlayer10.reset();
+                    mPlayer10.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        @Override
+                        public void onCompletion(MediaPlayer mp) {
+                            playMusic();
+                        }
+                    });
+                    mPlayer10.start();
+                }
+    }
+
+    public void stopMusic(){
+
+        if (mPlayer != null){
+            mPlayer.stop();
+        }
+
+        if (mPlayer2 != null){
+            mPlayer2.stop();
+        }
+        if (mPlayer3 != null){
+            mPlayer3.stop();
+        }
+
+        if (mPlayer4 != null){
+            mPlayer4.stop();
+        }
+        if (mPlayer5 != null){
+            mPlayer5.stop();
+        }
+
+        if (mPlayer6 != null){
+            mPlayer6.stop();
+        }
+
+        if (mPlayer7 != null){
+            mPlayer7.stop();
+        }
+
+        if (mPlayer8 != null){
+            mPlayer8.stop();
+        }
+
+        if (mPlayer9 != null){
+            mPlayer9.stop();
+        }
+
+        if (mPlayer10 != null){
+            mPlayer10.stop();
+        }
     }
 
     public void beginAction(){
@@ -130,7 +310,27 @@ public final class FaceTrackerActivity extends AppCompatActivity {
         generator.startLevelTimer();
     }
 
-    public void giveInstructions(int messageId){
+    public void setBackground(int level){
+        if (level == 1){
+            ImageView background = findViewById(R.id.background);
+            background.setImageDrawable(getResources().getDrawable(R.drawable.jungle));
+        }
+
+        if (level == 2){
+            ImageView background = findViewById(R.id.background);
+            background.setImageDrawable(getResources().getDrawable(R.drawable.pyramids));
+        }
+        if (level == 3){
+            ImageView background = findViewById(R.id.background);
+            background.setImageDrawable(getResources().getDrawable(R.drawable.crypt));
+        }
+        if (level == 4){
+            ImageView background = findViewById(R.id.background);
+            background.setImageDrawable(getResources().getDrawable(R.drawable.village));
+        }
+    }
+
+    public void giveInstructions(final int messageId){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(messageId);
         builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
@@ -147,6 +347,12 @@ public final class FaceTrackerActivity extends AppCompatActivity {
 
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+    public void givePlainInstructions(final int messageId){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(messageId);
+        builder.show();
     }
 
     public ConstraintLayout getMainLayout(){
@@ -293,6 +499,7 @@ public final class FaceTrackerActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         mPreview.stop();
+        stopMusic();
     }
 
     /**
@@ -458,4 +665,6 @@ public final class FaceTrackerActivity extends AppCompatActivity {
     {
         finish();
     }
+
+
 }

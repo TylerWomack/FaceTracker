@@ -34,7 +34,8 @@
             android:name=".FaceTrackerActivity"
             android:icon="@drawable/icon"
             android:label="Face Tracker"
-            android:screenOrientation="fullSensor"
+            android:screenOrientation="portrait"
+
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -44,13 +45,19 @@
         </activity>
         <activity
             android:name=".GameOverActivity"
-            android:label="@string/title_activity_game_over" />
+            android:label="@string/title_activity_game_over"
+            android:screenOrientation="portrait"
+            />
         <activity
             android:name=".LevelEndActivity"
-            android:label="@string/title_activity_level_end" />
+            android:label="@string/title_activity_level_end"
+            android:screenOrientation="portrait"
+            />
         <activity
             android:name=".VictoryActivity"
-            android:label="@string/title_activity_victory"></activity>
+            android:label="@string/title_activity_victory"
+            android:screenOrientation="portrait"
+            ></activity>
     </application>
 
 </manifest>

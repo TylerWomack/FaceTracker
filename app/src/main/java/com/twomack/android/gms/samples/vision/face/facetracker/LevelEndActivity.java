@@ -20,7 +20,7 @@ public class LevelEndActivity extends Activity {
     int heartsLeft;
     ArrayList<String> items;
     int nextLevel;
-    int maxLevel = 3;
+    int maxLevel = 4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +50,8 @@ public class LevelEndActivity extends Activity {
                 findViewById(R.id.heart).setVisibility(View.INVISIBLE);
             if (items.contains("diamond"))
                 findViewById(R.id.diamond).setVisibility(View.INVISIBLE);
+            if (items.contains("hourglass"))
+                findViewById(R.id.hourglass).setVisibility(View.INVISIBLE);
         }
 
         TextView treasureCollected = findViewById(R.id.treasureCollected);
@@ -82,6 +84,14 @@ public class LevelEndActivity extends Activity {
             }
         });
 
+        ImageView hourglass = findViewById(R.id.hourglass);
+        hourglass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                itemDialog(200, "hourglass");
+            }
+        });
+
         ImageView heart = findViewById(R.id.heart);
         heart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,6 +99,10 @@ public class LevelEndActivity extends Activity {
                 itemDialog(50, "heart");
             }
         });
+
+        if (nextLevel == 2)
+            showIntro();
+
     }
 
     public void itemDialog(final int price, final String itemName){
@@ -103,6 +117,8 @@ public class LevelEndActivity extends Activity {
             case "diamond": description =  this.getResources().getString(R.string.diamond_description);
                 break;
             case "heart": description = this.getResources().getString(R.string.heart_description);
+                break;
+            case "hourglass": description = this.getResources().getString(R.string.hourglass_description);
                 break;
         }
 
@@ -130,6 +146,8 @@ public class LevelEndActivity extends Activity {
         if (treasure > price){
             treasure = treasure - price;
             addItem(itemName);
+            TextView treasureText = findViewById(R.id.treasureCollected);
+            treasureText.setText(Integer.toString(treasure));
         }else{
             Toast.makeText(this, "Sorry, you don't have enough treasure!", Toast.LENGTH_SHORT).show();
         }
@@ -138,10 +156,10 @@ public class LevelEndActivity extends Activity {
     public void addItem(String itemName){
         switch (itemName) {
             case "sword": items.add("sword");
-            findViewById(R.id.sword).setVisibility(View.INVISIBLE);
+                findViewById(R.id.sword).setVisibility(View.INVISIBLE);
                 break;
             case "shield": items.add("shield");
-            findViewById(R.id.shield).setVisibility(View.INVISIBLE);
+                findViewById(R.id.shield).setVisibility(View.INVISIBLE);
                 break;
             case "diamond": items.add("diamond");
                 findViewById(R.id.diamond).setVisibility(View.INVISIBLE);
@@ -149,7 +167,16 @@ public class LevelEndActivity extends Activity {
             case "heart": items.add("heart");
                 findViewById(R.id.heart).setVisibility(View.INVISIBLE);
                 break;
+            case "hourglass": items.add("hourglass");
+                findViewById(R.id.hourglass).setVisibility(View.INVISIBLE);
+                break;
         }
+    }
+
+    private void showIntro(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(R.string.item_shop);
+        builder.show();
     }
 
     public void nextLevel(View v){
